@@ -53,13 +53,13 @@ if ($text == "/start") {
                     showMain();
                     break;
                 default:
-                    if (in_array(substr($text,5), getDistricts($chat_id))){
+                    if (in_array(substr($text, 5), getDistricts($chat_id))){
                         showSubjects();
                     }
                     else{
                         $telegram->sendMessage([
                            'chat_id' => $chat_id,
-                           'text' => $text,
+                           'text' => substr($text, 5),
                         ]);
                     }
                     break;
