@@ -42,7 +42,7 @@ if ($text == "/start") {
                     //ToDo
                     break;
                 case "🇺🇿🔄🇷🇺" . GetText("change_lang", getLanguage($chat_id)):
-                    changeLanguage();
+                    chooseLanguage();
                     break;
             }
             break;
