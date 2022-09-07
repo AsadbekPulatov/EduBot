@@ -57,10 +57,25 @@ if ($text == "/start") {
                         showSubjects();
                     }
                     else{
-                        $telegram->sendMessage([
-                           'chat_id' => $chat_id,
-                           'text' => substr($text, 4),
-                        ]);
+                        sendMessage(substr($text, 4));
+                    }
+                    break;
+            }
+            break;
+        case "subjects":
+            switch ($text) {
+                case "🔙" . GetText("back", getLanguage($chat_id)):
+                    showDistricts();
+                    break;
+                case "🔙" . GetText("main_page", getLanguage($chat_id)):
+                    showMain();
+                    break;
+                default:
+                    if (in_array(substr($text, 4), getSubjects($chat_id))){
+                        sendMessage("ishladi");
+                    }
+                    else{
+                        sendMessage(substr($text, 4));
                     }
                     break;
             }
@@ -152,6 +167,14 @@ function sendTextWithKeyboard($buttons, $text, $icon)
         'text' => $text,
     ];
     $telegram->sendMessage($content);
+}
+
+function sendMessage($text){
+    global $telegram, $chat_id;
+    $telegram->sendMessage([
+       'chat_id' => $chat_id,
+       'text' => $text,
+    ]);
 }
 
 ?>
