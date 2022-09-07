@@ -71,3 +71,19 @@ function getDistricts($chat_id){
     }
     return $districtsArray;
 }
+
+function getSubjects($chat_id){
+    global $connect;
+    $lang = getLanguage($chat_id);
+
+    $subjectsArray = [];
+    $sql = "SELECT * FROM subjects";
+    $result = $connect->query($sql);
+
+    while ($row = $result->fetch_assoc()){
+        if (isset($row[$lang])){
+            $subjectsArray[] = $row[$lang];
+        }
+    }
+    return $subjectsArray;
+}

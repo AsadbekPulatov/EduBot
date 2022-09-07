@@ -46,6 +46,25 @@ if ($text == "/start") {
                     break;
             }
             break;
+        case "districts":
+            switch ($text) {
+                case "🔙" . GetText("back", getLanguage($chat_id)):
+                case "🔙" . GetText("main_page", getLanguage($chat_id)):
+                    showMain();
+                    break;
+                default:
+                    if (in_array(substr($text,2), getDistricts($chat_id))){
+                        showSubjects();
+                    }
+                    else{
+                        $telegram->sendMessage([
+                           'chat_id' => $chat_id,
+                           'text' => $text,
+                        ]);
+                    }
+                    break;
+            }
+            break;
     }
 }
 function chooseLanguage()
@@ -98,7 +117,8 @@ function changeLanguage()
     showMain();
 }
 
-function showDistricts(){
+function showDistricts()
+{
     global $telegram, $chat_id;
 
     setPage($chat_id, "districts");
@@ -108,20 +128,30 @@ function showDistricts(){
     sendTextWithKeyboard($districts, $text, "📍");
 }
 
-function sendTextWithKeyboard($buttons, $text, $icon){
+function showSubjects(){
+    global $chat_id;
+    $text = GetText("choose_subject", getLanguage($chat_id));
+    setPage($chat_id, 'subjects');
+    $subjects = getSubjects($chat_id);
+    sendTextWithKeyboard($subjects, $text, "◻");
+}
+
+function sendTextWithKeyboard($buttons, $text, $icon)
+{
     global $telegram, $chat_id;
     $option = [];
-    for ($i=0; $i<count($buttons); $i++){
-        $option[] = [$telegram->buildKeyboardButton($icon.$buttons[$i])];
+    for ($i = 0; $i < count($buttons); $i++) {
+        $option[] = [$telegram->buildKeyboardButton($icon . $buttons[$i])];
     }
-    $option[] = [$telegram->buildKeyboardButton("🔙".GetText("back", getLanguage($chat_id)))];
-    $option[] = [$telegram->buildKeyboardButton("🔙".GetText("main_page", getLanguage($chat_id)))];
+    $option[] = [$telegram->buildKeyboardButton("🔙" . GetText("back", getLanguage($chat_id)))];
+    $option[] = [$telegram->buildKeyboardButton("🔙" . GetText("main_page", getLanguage($chat_id)))];
     $keyboard = $telegram->buildKeyBoard($option);
     $content = [
-      'chat_id' => $chat_id,
-      'reply_markup' => $keyboard,
-      'text' => $text,
+        'chat_id' => $chat_id,
+        'reply_markup' => $keyboard,
+        'text' => $text,
     ];
     $telegram->sendMessage($content);
 }
+
 ?>
