@@ -101,8 +101,8 @@ function changeLanguage()
 function showDistricts(){
     global $telegram, $chat_id;
 
-    $text = GetText("choose_districts");
     setPage($chat_id, "districts");
+    $text = GetText("choose_districts", getLanguage($chat_id));
 //    $districts = getDistricts($chat_id);
 //    var_dump($districts);
 
@@ -113,7 +113,7 @@ function showDistricts(){
 //            $telegram->buildKeyboardButton($districts[$i+1])
 //        ];
 //    }
-//    $keyboard = $telegram->buildKeyBoard($option);
+//   $keyboard = $telegram->buildKeyBoard($option, false, true);
     $content = [
         'chat_id' => $chat_id,
 //        'reply_markup' => $keyboard,
