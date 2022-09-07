@@ -114,6 +114,8 @@ function sendTextWithKeyboard($buttons, $text, $icon){
     for ($i=0; $i<count($buttons); $i++){
         $option[] = [$telegram->buildKeyboardButton($icon.$buttons[$i])];
     }
+    $option[] = [$telegram->buildKeyboardButton("🔙".GetText("back", getLanguage($chat_id)))];
+    $option[] = [$telegram->buildKeyboardButton("🔙".GetText("main_page", getLanguage($chat_id)))];
     $keyboard = $telegram->buildKeyBoard($option);
     $content = [
       'chat_id' => $chat_id,
