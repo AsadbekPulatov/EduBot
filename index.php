@@ -103,20 +103,20 @@ function showDistricts(){
 
     $text = GetText("choose_districts");
     setPage($chat_id, "districts");
-    $districts = getDistricts($chat_id);
-    var_dump($districts);
+//    $districts = getDistricts($chat_id);
+//    var_dump($districts);
 
     $option = [];
-    for ($i=0; $i < count($districts); $i+=2){
-        $option[] = [
-            $telegram->buildKeyboardButton($districts[$i]),
-            $telegram->buildKeyboardButton($districts[$i+1])
-        ];
-    }
-    $keyboard = $telegram->buildKeyBoard($option);
+//    for ($i=0; $i < count($districts); $i+=2){
+//        $option[] = [
+//            $telegram->buildKeyboardButton($districts[$i]),
+//            $telegram->buildKeyboardButton($districts[$i+1])
+//        ];
+//    }
+//    $keyboard = $telegram->buildKeyBoard($option);
     $content = [
         'chat_id' => $chat_id,
-        'reply_markup' => $keyboard,
+//        'reply_markup' => $keyboard,
         'text' => $text
     ];
     $telegram->sendMessage($content);
