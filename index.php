@@ -105,15 +105,20 @@ function showDistricts(){
     $text = GetText("choose_districts", getLanguage($chat_id));
     $districts = getDistricts($chat_id);
 
+    sendTextWithKeyboard($districts, $text, "📍");
+}
+
+function sendTextWithKeyboard($buttons, $text, $icon){
+    global $telegram, $chat_id;
     $option = [];
-    for ($i=0; $i < count($districts); $i++){
-        $option[] = [$telegram->buildKeyboardButton($districts[$i])];
+    for ($i=0; $i<count($buttons); $i++){
+        $option[] = [$telegram->buildKeyboardButton($icon.$buttons[$i])];
     }
-    $keyboard = $telegram->buildKeyBoard($option, false, true);
+    $keyboard = $telegram->buildKeyBoard($option);
     $content = [
-        'chat_id' => $chat_id,
-        'reply_markup' => $keyboard,
-        'text' => $text
+      'chat_id' => $chat_id,
+      'reply_markup' => $keyboard,
+      'text' => $text,
     ];
     $telegram->sendMessage($content);
 }
