@@ -62,9 +62,9 @@ function getDistricts($chat_id){
 
     $districtsArray = [];
     $sql = "SELECT * FROM districts";
-    $connect->query($sql);
+    $result = $connect->query($sql);
 
-    while ($row = $connect->fetch_assoc()){
+    while ($row = $result->fetch_assoc()){
         if (isset($row[$lang])){
             $districtsArray[] = $row[$lang];
         }
