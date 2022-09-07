@@ -36,7 +36,7 @@ if ($text == "/start") {
         case "main" :
             switch ($text) {
                 case "🔖" . GetText("choose_training_center", getLanguage($chat_id)):
-                    //ToDo
+                    showDistricts();
                     break;
                 case "💎" . GetText("training_center_list", getLanguage($chat_id)):
                     //ToDo
@@ -98,4 +98,22 @@ function changeLanguage()
     showMain();
 }
 
+function showDistricts(){
+    global $telegram, $chat_id;
+
+    $text = GetText("choose_districts");
+    $districts = getDistricts($chat_id);
+
+    $option = [];
+    for ($i=0; $i < count($districts); $i+=2){
+        $option[] = [$telegram->buildKeyboardButton($districts[$i]), $telegram->buildKeyboardButton($districts[$i+1])];
+    }
+    $keyboard = $telegram->buildKeyBoard($option);
+    $content = [
+        'chat_id' => $chat_id,
+        'reply_markup' => $keyboard,
+        'text' => $text
+    ];
+    $telegram->sendMessage($content);
+}
 ?>

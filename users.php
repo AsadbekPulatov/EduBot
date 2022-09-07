@@ -55,3 +55,19 @@ function GetText($keyword, $language)
         return $row[$language];
     }
 }
+
+function getDistricts($chat_id){
+    global $connect;
+    $lang = getLanguage($chat_id);
+
+    $districtsArray = [];
+    $sql = "SELECT * FROM districts";
+    $connect->query($sql);
+
+    while ($row = $connect->fetch_assoc()){
+        if (isset($row[$lang])){
+            $districtsArray[] = $row[$lang];
+        }
+    }
+    return $districtsArray;
+}
