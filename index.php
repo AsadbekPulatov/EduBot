@@ -41,7 +41,7 @@ if ($text == "/start") {
                 case "💎" . GetText("training_center_list", getLanguage($chat_id)):
                     //ToDo
                     break;
-                case "🇺🇿🔄🇷🇺" . GetText("change_lang", getLanguage($chat_id)):
+                case "🔄" . GetText("change_lang", getLanguage($chat_id)):
                     chooseLanguage();
                     break;
             }
@@ -110,7 +110,7 @@ function showMain()
     $text = GetText("choose_category", getLanguage($chat_id)) . "👇";
     $option = array(
         array($telegram->buildKeyboardButton("🔖" . GetText("choose_training_center", getLanguage($chat_id))), $telegram->buildKeyboardButton("💎" . GetText("training_center_list", getLanguage($chat_id)))),
-        array($telegram->buildKeyboardButton("🇺🇿🔄🇷🇺" . GetText("change_lang", getLanguage($chat_id)))),
+        array($telegram->buildKeyboardButton("🔄" . GetText("change_lang", getLanguage($chat_id)))),
     );
     $keyboard = $telegram->buildKeyBoard($option, false, true);
 
