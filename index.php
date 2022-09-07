@@ -71,11 +71,11 @@ if ($text == "/start") {
                     showMain();
                     break;
                 default:
-                    if (in_array(substr($text, 4), getSubjects($chat_id))){
+                    if (in_array(substr($text, 3), getSubjects($chat_id))){
                         sendMessage("ishladi");
                     }
                     else{
-                        sendMessage(substr($text, 4));
+                        sendMessage(substr($text, 3));
                     }
                     break;
             }
