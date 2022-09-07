@@ -5,17 +5,10 @@ require_once 'connect.php';
 function createUser($chat_id, $name)
 {
     global $connect;
-//    $sql = "SELECT * from users WHERE chat_id='$chat_id'";
-//    $result = $connect->query($sql);
-//    if ($result->num_rows == 0) {
-//        $sql = "INSERT INTO users(chat_id, name) values('$chat_id','$name')";
-//        $connect->query($sql);
-//    } else {
-        $sql = "DELETE FROM users WHERE chat_id = '$chat_id'";
-        $connect->query($sql);
-        $sql = "INSERT INTO users(chat_id, name) values('$chat_id','$name')";
-        $connect->query($sql);
-//    }
+    $sql = "DELETE FROM users WHERE chat_id = '$chat_id'";
+    $connect->query($sql);
+    $sql = "INSERT INTO users(chat_id, name) values('$chat_id','$name')";
+    $connect->query($sql);
 }
 
 function setPage($chat_id, $page)
@@ -51,6 +44,7 @@ function getLanguage($chat_id)
     $row = $result->fetch_assoc();
     return $row['language'];
 }
+
 function GetText($keyword, $language)
 {
     global $connect;

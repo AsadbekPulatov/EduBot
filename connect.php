@@ -8,7 +8,3 @@ $database = "heroku_7784e9053df43f3";
 $connect = new mysqli($servername, $username, $password, $database);
 
 $connect->set_charset("utf8");
-//if ($connect->connect_error) {
-//    die("Connection failed: " . $connect->connect_error);
-//}
-//echo "Connected successfully";

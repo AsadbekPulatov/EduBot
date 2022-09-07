@@ -16,7 +16,6 @@ $message = $data['message'];
 //$admin_chat_id = 967469906;
 
 $page = getPage($chat_id);
-//var_dump($page);
 
 if ($text == "/start") {
     chooseLanguage();
@@ -36,7 +35,6 @@ if ($text == "/start") {
             break;
     }
 }
-
 function chooseLanguage()
 {
     global $telegram, $chat_id, $firstname;
@@ -62,10 +60,10 @@ function showMain()
 {
     global $telegram, $chat_id;
     setPage($chat_id, 'main');
-    $text = GetText("choose_category", getLanguage($chat_id));
+    $text = GetText("choose_category", getLanguage($chat_id))."👇";
     $option = array(
-        array($telegram->buildKeyboardButton(GetText("choose_training_center", getLanguage($chat_id))), $telegram->buildKeyboardButton(GetText("training_center_list", getLanguage($chat_id)))),
-        array($telegram->buildKeyboardButton("Tilni almashtirish")),
+        array($telegram->buildKeyboardButton("🔖".GetText("choose_training_center", getLanguage($chat_id))), $telegram->buildKeyboardButton("💎".GetText("training_center_list", getLanguage($chat_id)))),
+        array($telegram->buildKeyboardButton("🇺🇿🔄🇷🇺".GetText("change_lang", getLanguage($chat_id)))),
     );
     $keyboard = $telegram->buildKeyBoard($option, false, true);
 
