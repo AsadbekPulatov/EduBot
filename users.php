@@ -26,7 +26,7 @@ function setPage($chat_id, $page)
 function getPage($chat_id)
 {
     global $connect;
-    $sql = "SELECT * FROM WHERE chat_id = '$chat_id'";
+    $sql = "SELECT * FROM users WHERE chat_id = '$chat_id'";
     $result = $connect->query($sql);
 
     $row = $result->fetch_assoc();
@@ -43,7 +43,7 @@ function setLanguage($chat_id, $language)
 function getLanguage($chat_id)
 {
     global $connect;
-    $sql = "SELECT * FROM WHERE chat_id = '$chat_id'";
+    $sql = "SELECT * FROM users WHERE chat_id = '$chat_id'";
     $result = $connect->query($sql);
 
     $row = $result->fetch_assoc();
