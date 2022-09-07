@@ -14,33 +14,33 @@ $message = $data['message'];
 
 
 //$admin_chat_id = 967469906;
+$page = getPage($chat_id);
 
 if ($text == "/start") {
     chooseLanguage();
+} else {
+    switch ($page) {
+        case "language" :
+            switch ($text) {
+                case "Русский 🇷🇺":
+                    setLanguage($chat_id, 'ru');
+                    showMain();
+                    break;
+                case "O'zbek tili 🇺🇿":
+                    setLanguage($chat_id, 'uz');
+                    showMain();
+                    break;
+            }
+            break;
+    }
 }
-//else {
-//    switch (getPage($chat_id)) {
-//        case "language" :
-//            switch ($text) {
-//                case "Русский 🇷🇺":
-//                    setLanguage($chat_id, 'ru');
-////            showMain();
-//                    break;
-//                case "O'zbek tili 🇺🇿":
-//                    setLanguage($chat_id, 'uz');
-////            showMain();
-//                    break;
-//            }
-//            break;
-//    }
-//}
 
 function chooseLanguage()
 {
-    global $telegram, $chat_id, $name;
+    global $telegram, $chat_id, $firstname;
     $text = "Пожалуйста выберите язык.\nIltimos, tilni tanlang.";
 
-    createUser($chat_id, $name);
+    createUser($chat_id, $firstname);
     setPage($chat_id, 'language');
 
     $option = array(
