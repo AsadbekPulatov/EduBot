@@ -16,27 +16,26 @@ $message = $data['message'];
 //$admin_chat_id = 967469906;
 
 $page = getPage($chat_id);
-var_dump($page);
+//var_dump($page);
 
 if ($text == "/start") {
     chooseLanguage();
+} else {
+    switch ($page) {
+        case "language" :
+            switch ($text) {
+                case "Русский 🇷🇺":
+                    setLanguage($chat_id, 'ru');
+                    showMain();
+                    break;
+                case "O'zbek tili 🇺🇿":
+                    setLanguage($chat_id, 'uz');
+                    showMain();
+                    break;
+            }
+            break;
+    }
 }
-//else {
-//    switch ($page) {
-//        case "language" :
-//            switch ($text) {
-//                case "Русский 🇷🇺":
-//                    setLanguage($chat_id, 'ru');
-//                    showMain();
-//                    break;
-//                case "O'zbek tili 🇺🇿":
-//                    setLanguage($chat_id, 'uz');
-//                    showMain();
-//                    break;
-//            }
-//            break;
-//    }
-//}
 
 function chooseLanguage()
 {
