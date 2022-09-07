@@ -104,6 +104,7 @@ function showDistricts(){
     $text = GetText("choose_districts");
     setPage($chat_id, "districts");
     $districts = getDistricts($chat_id);
+    var_dump($districts);
 
     $option = [];
     for ($i=0; $i < count($districts); $i+=2){
