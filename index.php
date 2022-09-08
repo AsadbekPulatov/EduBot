@@ -56,10 +56,9 @@ if ($text == "/start") {
                     showMain();
                     break;
                 default:
-                    if (in_array(substr($text, 4), $user->getDistricts())){
+                    if (in_array(substr($text, 4), $user->getDistricts())) {
                         showSubjects();
-                    }
-                    else{
+                    } else {
                         sendMessage(substr($text, 4));
                     }
                     break;
@@ -74,17 +73,16 @@ if ($text == "/start") {
                     showMain();
                     break;
                 default:
-                    if (in_array(substr($text, 3), $user->getSubjects())){
+                    if (in_array(substr($text, 3), $user->getSubjects())) {
                         sendMessage("ishladi");
-                    }
-                    else{
+                    } else {
                         sendMessage(substr($text, 3));
                     }
                     break;
             }
             break;
         default:
-            sendMessage("{ |".$page."| }");
+            sendMessage("{ |" . $page . "| }");
             break;
     }
 }
@@ -141,7 +139,8 @@ function showDistricts()
     sendTextWithKeyboard($districts, $text, "📍");
 }
 
-function showSubjects(){
+function showSubjects()
+{
     global $chat_id, $user;
     $text = $user->GetText("choose_subject");
 //    setPage($chat_id, 'subjects');
@@ -155,10 +154,12 @@ function sendTextWithKeyboard($buttons, $text, $icon)
 {
     global $telegram, $chat_id, $user;
     $option = [];
-    for ($i = 0; $i < count($buttons); $i+=2) {
-        if($i+2 <= count($buttons)){
-            $option[] = [$telegram->buildKeyboardButton($icon . $buttons[$i])];
-            $option[] = [$telegram->buildKeyboardButton($icon . $buttons[$i+1])];
+    for ($i = 0; $i < count($buttons); $i += 2) {
+        if ($i + 2 <= count($buttons)) {
+            $option[] = [
+                $telegram->buildKeyboardButton($icon . $buttons[$i]),
+                $telegram->buildKeyboardButton($icon . $buttons[$i + 1])
+            ];
         }
     }
     if (count($buttons) % 2 == 1) {
@@ -177,11 +178,12 @@ function sendTextWithKeyboard($buttons, $text, $icon)
     $telegram->sendMessage($content);
 }
 
-function sendMessage($text){
+function sendMessage($text)
+{
     global $telegram, $chat_id;
     $telegram->sendMessage([
-       'chat_id' => $chat_id,
-       'text' => $text,
+        'chat_id' => $chat_id,
+        'text' => $text,
     ]);
 }
 
