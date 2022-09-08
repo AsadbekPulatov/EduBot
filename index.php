@@ -84,7 +84,7 @@ if ($text == "/start") {
             }
             break;
         default:
-            sendMessage($page);
+            sendMessage("{ -> |".$page."| <- }");
             break;
     }
 }

@@ -20,16 +20,14 @@ class User
     function setPage($page)
     {
         global $connect;
-        $chat_id = $this->chat_id;
-        $sql = "UPDATE users SET page = '$page' WHERE chat_id = '$chat_id'";
+        $sql = "UPDATE users SET page = '$page' WHERE chat_id = '$this->chat_id'";
         $connect->query($sql);
     }
 
     function getPage()
     {
         global $connect;
-        $chat_id = $this->chat_id;
-        $sql = "SELECT * FROM users WHERE chat_id = '$chat_id'";
+        $sql = "SELECT * FROM users WHERE chat_id = '$this->chat_id'";
         $result = $connect->query($sql);
 
         $row = $result->fetch_assoc();
@@ -39,16 +37,14 @@ class User
     function setLanguage($language)
     {
         global $connect;
-        $chat_id = $this->chat_id;
-        $sql = "UPDATE users SET language = '$language' WHERE chat_id = '$chat_id'";
+        $sql = "UPDATE users SET language = '$language' WHERE chat_id = '$this->chat_id'";
         $connect->query($sql);
     }
 
     function getLanguage()
     {
         global $connect;
-        $chat_id = $this->chat_id;
-        $sql = "SELECT * FROM users WHERE chat_id = '$chat_id'";
+        $sql = "SELECT * FROM users WHERE chat_id = '$this->chat_id'";
         $result = $connect->query($sql);
 
         $row = $result->fetch_assoc();
@@ -70,8 +66,6 @@ class User
     function getDistricts()
     {
         global $connect;
-        $chat_id = $this->chat_id;
-//        $lang = getLanguage($chat_id);
         $lang = $this->getLanguage();
         $districtsArray = [];
         $sql = "SELECT * FROM districts";
@@ -88,8 +82,6 @@ class User
     function getSubjects()
     {
         global $connect;
-        $chat_id = $this->chat_id;
-//        $lang = getLanguage($chat_id);
         $lang = $this->getLanguage();
 
         $subjectsArray = [];
