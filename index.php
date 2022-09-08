@@ -88,7 +88,7 @@ if ($text == "/start") {
 }
 function chooseLanguage()
 {
-    global $telegram, $chat_id, $firstname, $user;
+    global $telegram, $chat_id, $user;
     $text = "Пожалуйста выберите язык.\nIltimos, tilni tanlang.";
 
 //    createUser($chat_id, $firstname);
