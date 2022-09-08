@@ -6,7 +6,10 @@ class User
     private $chat_id;
     private $firstname;
 
-    function __construct($chat_id, $firstname)
+    function __construct($chat_id){
+        $this->chat_id = $chat_id;
+    }
+    function createUser($chat_id, $firstname)
     {
         global $connect;
         $this->chat_id = $chat_id;
