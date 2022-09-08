@@ -18,7 +18,6 @@ $user = new User($chat_id, $firstname);
 //$admin_chat_id = 967469906;
 
 $page = $user->getPage();
-
 if ($text == "/start") {
     chooseLanguage();
 } else {
@@ -152,13 +151,13 @@ function showSubjects(){
 
 function sendTextWithKeyboard($buttons, $text, $icon)
 {
-    global $telegram, $chat_id;
+    global $telegram, $chat_id, $user;
     $option = [];
     for ($i = 0; $i < count($buttons); $i++) {
         $option[] = [$telegram->buildKeyboardButton($icon . $buttons[$i])];
     }
-    $option[] = [$telegram->buildKeyboardButton("🔙" . GetText("back", getLanguage($chat_id)))];
-    $option[] = [$telegram->buildKeyboardButton("🔙" . GetText("main_page", getLanguage($chat_id)))];
+    $option[] = [$telegram->buildKeyboardButton("🔙" . $user->GetText("back"))];
+    $option[] = [$telegram->buildKeyboardButton("🔙" . $user->GetText("main_page"))];
     $keyboard = $telegram->buildKeyBoard($option);
     $content = [
         'chat_id' => $chat_id,
