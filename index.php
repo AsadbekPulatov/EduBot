@@ -13,7 +13,7 @@ $firstname = $telegram->FirstName();
 $data = $telegram->getData();
 $message = $data['message'];
 
-$user = new User($chat_id, $firstname);
+$user = new User();
 
 //$admin_chat_id = 967469906;
 
@@ -88,11 +88,12 @@ if ($text == "/start") {
 }
 function chooseLanguage()
 {
-    global $telegram, $chat_id, $user;
+    global $telegram, $chat_id, $user, $firstname;
     $text = "Пожалуйста выберите язык.\nIltimos, tilni tanlang.";
 
 //    createUser($chat_id, $firstname);
 //    setPage($chat_id, 'language');
+    $user->createUser($chat_id, $firstname);
     $user->setPage('language');
 
     $option = array(

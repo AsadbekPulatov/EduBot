@@ -5,10 +5,8 @@ class User
 {
     private $chat_id;
     private $firstname;
-    private $language;
-    private $page;
 
-    function __construct($chat_id, $firstname)
+    function createUser($chat_id, $firstname)
     {
         global $connect;
         $this->chat_id = $chat_id;
@@ -22,7 +20,6 @@ class User
     function setPage($page)
     {
         global $connect;
-        $this->page = $page;
         $chat_id = $this->chat_id;
         $sql = "UPDATE users SET page = '$page' WHERE chat_id = '$chat_id'";
         $connect->query($sql);
@@ -42,7 +39,6 @@ class User
     function setLanguage($language)
     {
         global $connect;
-        $this->language = $language;
         $chat_id = $this->chat_id;
         $sql = "UPDATE users SET language = '$language' WHERE chat_id = '$chat_id'";
         $connect->query($sql);
