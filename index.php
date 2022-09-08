@@ -93,8 +93,6 @@ function chooseLanguage()
     global $telegram, $chat_id, $user, $firstname;
     $text = "Пожалуйста выберите язык.\nIltimos, tilni tanlang.";
 
-//    createUser($chat_id, $firstname);
-//    setPage($chat_id, 'language');
     $user->createUser($chat_id, $firstname);
     $user->setPage('language');
 
@@ -157,11 +155,19 @@ function sendTextWithKeyboard($buttons, $text, $icon)
 {
     global $telegram, $chat_id, $user;
     $option = [];
-    for ($i = 0; $i < count($buttons); $i++) {
-        $option[] = [$telegram->buildKeyboardButton($icon . $buttons[$i])];
+    for ($i = 0; $i < count($buttons); $i+=2) {
+        if($i+2 <= count($buttons)){
+            $option[] = [$telegram->buildKeyboardButton($icon . $buttons[$i])];
+            $option[] = [$telegram->buildKeyboardButton($icon . $buttons[$i+1])];
+        }
     }
-    $option[] = [$telegram->buildKeyboardButton("🔙" . $user->GetText("back"))];
-    $option[] = [$telegram->buildKeyboardButton("🔙" . $user->GetText("main_page"))];
+    if (count($buttons) % 2 == 1) {
+        $option[] = [$telegram->buildKeyboardButton($icon . $buttons[count($buttons) - 1])];
+    }
+    $option[] = [
+        $telegram->buildKeyboardButton("🔙" . $user->GetText("back")),
+        $telegram->buildKeyboardButton("🔙" . $user->GetText("main_page"))
+    ];
     $keyboard = $telegram->buildKeyBoard($option);
     $content = [
         'chat_id' => $chat_id,
