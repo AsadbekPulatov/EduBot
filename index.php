@@ -2,7 +2,8 @@
 
 //require_once 'connect.php';
 include 'Telegram.php';
-require_once 'users.php';
+//require_once 'users.php';
+require_once 'User.php';
 
 $telegram = new Telegram('5305513932:AAH8yqkhu6WzEkeLSWRg8HUcNs4qSuRNUww');
 $chat_id = $telegram->ChatID();
@@ -12,10 +13,11 @@ $firstname = $telegram->FirstName();
 $data = $telegram->getData();
 $message = $data['message'];
 
+$user = new User($chat_id, $firstname);
 
 //$admin_chat_id = 967469906;
 
-$page = getPage($chat_id);
+$page = $user->getPage();
 
 if ($text == "/start") {
     chooseLanguage();
@@ -24,36 +26,38 @@ if ($text == "/start") {
         case "language" :
             switch ($text) {
                 case "Русский 🇷🇺":
-                    setLanguage($chat_id, 'ru');
+//                    setLanguage($chat_id, 'ru');
+                    $user->setLanguage('ru');
                     showMain();
                     break;
                 case "O'zbek tili 🇺🇿":
-                    setLanguage($chat_id, 'uz');
+//                    setLanguage($chat_id, 'uz');
+                    $user->setLanguage('uz');
                     showMain();
                     break;
             }
             break;
         case "main" :
             switch ($text) {
-                case "🔖" . GetText("choose_training_center", getLanguage($chat_id)):
+                case "🔖" . $user->GetText("choose_training_center"):
                     showDistricts();
                     break;
-                case "💎" . GetText("training_center_list", getLanguage($chat_id)):
+                case "💎" . $user->GetText("training_center_list"):
                     //ToDo
                     break;
-                case "🔄" . GetText("change_lang", getLanguage($chat_id)):
+                case "🔄" . $user->GetText("change_lang"):
                     chooseLanguage();
                     break;
             }
             break;
         case "districts":
             switch ($text) {
-                case "🔙" . GetText("back", getLanguage($chat_id)):
-                case "🔙" . GetText("main_page", getLanguage($chat_id)):
+                case "🔙" . $user->GetText("back"):
+                case "🔙" . $user->GetText("main_page"):
                     showMain();
                     break;
                 default:
-                    if (in_array(substr($text, 4), getDistricts($chat_id))){
+                    if (in_array(substr($text, 4), $user->getDistricts())){
                         showSubjects();
                     }
                     else{
@@ -64,14 +68,14 @@ if ($text == "/start") {
             break;
         case "subjects":
             switch ($text) {
-                case "🔙" . GetText("back", getLanguage($chat_id)):
+                case "🔙" . $user->GetText("back"):
                     showDistricts();
                     break;
-                case "🔙" . GetText("main_page", getLanguage($chat_id)):
+                case "🔙" . $user->GetText("main_page"):
                     showMain();
                     break;
                 default:
-                    if (in_array(substr($text, 3), getSubjects($chat_id))){
+                    if (in_array(substr($text, 3), $user->getSubjects())){
                         sendMessage("ishladi");
                     }
                     else{
@@ -84,11 +88,12 @@ if ($text == "/start") {
 }
 function chooseLanguage()
 {
-    global $telegram, $chat_id, $firstname;
+    global $telegram, $chat_id, $firstname, $user;
     $text = "Пожалуйста выберите язык.\nIltimos, tilni tanlang.";
 
-    createUser($chat_id, $firstname);
-    setPage($chat_id, 'language');
+//    createUser($chat_id, $firstname);
+//    setPage($chat_id, 'language');
+    $user->setPage('language');
 
     $option = array(
         array($telegram->buildKeyboardButton("Русский 🇷🇺"), $telegram->buildKeyboardButton("O'zbek tili 🇺🇿"))
@@ -105,12 +110,13 @@ function chooseLanguage()
 
 function showMain()
 {
-    global $telegram, $chat_id;
-    setPage($chat_id, 'main');
-    $text = GetText("choose_category", getLanguage($chat_id)) . "👇";
+    global $telegram, $chat_id, $user;
+//    setPage($chat_id, 'main');
+    $user->setPage('main');
+    $text = $user->GetText("choose_category") . "👇";
     $option = array(
-        array($telegram->buildKeyboardButton("🔖" . GetText("choose_training_center", getLanguage($chat_id))), $telegram->buildKeyboardButton("💎" . GetText("training_center_list", getLanguage($chat_id)))),
-        array($telegram->buildKeyboardButton("🔄" . GetText("change_lang", getLanguage($chat_id)))),
+        array($telegram->buildKeyboardButton("🔖" . $user->GetText("choose_training_center")), $telegram->buildKeyboardButton("💎" . $user->GetText("training_center_list"))),
+        array($telegram->buildKeyboardButton("🔄" . $user->GetText("change_lang"))),
     );
     $keyboard = $telegram->buildKeyBoard($option, false, true);
 
@@ -122,32 +128,25 @@ function showMain()
     $telegram->sendMessage($content);
 }
 
-function changeLanguage()
-{
-    global $chat_id;
-    if (getLanguage($chat_id) == 'uz')
-        setLanguage($chat_id, 'ru');
-    else
-        setLanguage($chat_id, 'uz');
-    showMain();
-}
-
 function showDistricts()
 {
-    global $telegram, $chat_id;
+    global $chat_id, $user;
 
-    setPage($chat_id, "districts");
-    $text = GetText("choose_districts", getLanguage($chat_id));
-    $districts = getDistricts($chat_id);
+//    setPage($chat_id, "districts");
+    $user->setPage("districts");
+    $text = $user->GetText("choose_districts");
+    $districts = $user->getDistricts();
 
     sendTextWithKeyboard($districts, $text, "📍");
 }
 
 function showSubjects(){
-    global $chat_id;
-    $text = GetText("choose_subject", getLanguage($chat_id));
-    setPage($chat_id, 'subjects');
-    $subjects = getSubjects($chat_id);
+    global $chat_id, $user;
+    $text = $user->GetText("choose_subject");
+//    setPage($chat_id, 'subjects');
+    $user->setPage('subjects');
+//    $subjects = getSubjects($chat_id);
+    $subjects = $user->getSubjects();
     sendTextWithKeyboard($subjects, $text, "◻");
 }
 
