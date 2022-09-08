@@ -1,5 +1,6 @@
 <?php
 
+require_once 'connect.php';
 class User
 {
     private $chat_id;
