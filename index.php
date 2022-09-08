@@ -83,6 +83,9 @@ if ($text == "/start") {
                     break;
             }
             break;
+        default:
+            sendMessage($page);
+            break;
     }
 }
 function chooseLanguage()
