@@ -198,7 +198,7 @@ function showTrainingCentres()
     $TrainingCentres = $user->getTrainingCentres();
     $option = [];
     foreach ($TrainingCentres as $item) {
-        $option[] = [$telegram->buildInlineKeyboardButton("☑" . $item . "☑", "", $item)];
+        $option[] = [$telegram->buildInlineKeyboardButton("☑" . $item['name'] . "☑", "", $item['id'])];
     }
     $keyboard = $telegram->buildInlineKeyBoard($option);
 
