@@ -207,6 +207,7 @@ function showTrainingCentres()
         'reply_markup' => $keyboard,
         'text' => $text,
     ];
+    $telegram->sendMessage($content);
 }
 
 ?>
