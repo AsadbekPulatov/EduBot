@@ -131,21 +131,27 @@ class User
     function getTrainingCentres(){
         global $connect;
 
-        $sql = "SELECT * FROM users WHERE `chat_id` = {$this->chat_id}";
+        $sql = "select * from users where chat_id=" . $this->chat_id . " limit 1";
+        $result = $connect->query($sql)->fetch_assoc();
+        $district_id = $result['district_id'];
+        $subject_id = $result['subject_id'];
+        $sql = "select keyword from subjects where id=" . $subject_id . " limit 1";
+        $result =  $connect->query($sql)->fetch_assoc();
+        $keyword = $result['keyword'];
+
+        $sql = "select * from centers";
         $result = $connect->query($sql);
-        $row = $result->fetch_assoc();
+        $centers = [];
+        while ($row = $result->fetch_assoc()) {
+            $districts = explode(',', $row['district_id']);
+            if (in_array($district_id, $districts)) {
+                $subjects = explode(',', $row['subjects']);
+                if (in_array($keyword, $subjects)) {
+                    $centers[] = $row;
+                }
+            }
 
-        $district = $row['district_id'];
-        $subject = $row['subject_id'];
-
-        $TrainingCentres = [];
-        $sql = "SELECT * FROM trainingcentres WHERE `district` = '{$district}' AND `subject` LIKE '%{$subject}%'";
-        $result = $connect->query($sql);
-
-        while ($row = $result->fetch_assoc()){
-            $TrainingCentres[] = $row['name'];
         }
-
-        return $TrainingCentres;
+        return $centers;
     }
 }
