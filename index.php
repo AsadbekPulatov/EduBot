@@ -38,21 +38,21 @@ if ($text == "/start") {
             break;
         case "main" :
             switch ($text) {
-                case "🔖" . $user->GetText("choose_training_center"):
+                case $user->GetText("choose_training_center"):
                     showDistricts();
                     break;
-                case "💎" . $user->GetText("training_center_list"):
+                case $user->GetText("training_center_list"):
                     //ToDo
                     break;
-                case "🔄" . $user->GetText("change_lang"):
+                case $user->GetText("change_lang"):
                     chooseLanguage();
                     break;
             }
             break;
         case "districts":
             switch ($text) {
-                case "🔙" . $user->GetText("back"):
-                case "🔙" . $user->GetText("main_page"):
+                case $user->GetText("back"):
+                case $user->GetText("main_page"):
                     showMain();
                     break;
                 default:
@@ -66,10 +66,10 @@ if ($text == "/start") {
             break;
         case "subjects":
             switch ($text) {
-                case "🔙" . $user->GetText("back"):
+                case $user->GetText("back"):
                     showDistricts();
                     break;
-                case "🔙" . $user->GetText("main_page"):
+                case $user->GetText("main_page"):
                     showMain();
                     break;
                 default:
@@ -112,10 +112,10 @@ function showMain()
     global $telegram, $chat_id, $user;
 //    setPage($chat_id, 'main');
     $user->setPage('main');
-    $text = $user->GetText("choose_category") . "👇";
+    $text = $user->GetText("choose_category");
     $option = array(
-        array($telegram->buildKeyboardButton("🔖" . $user->GetText("choose_training_center")), $telegram->buildKeyboardButton("💎" . $user->GetText("training_center_list"))),
-        array($telegram->buildKeyboardButton("🔄" . $user->GetText("change_lang"))),
+        array($telegram->buildKeyboardButton($user->GetText("choose_training_center")), $telegram->buildKeyboardButton($user->GetText("training_center_list"))),
+        array($telegram->buildKeyboardButton($user->GetText("change_lang"))),
     );
     $keyboard = $telegram->buildKeyBoard($option, false, true);
 
