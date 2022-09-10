@@ -168,8 +168,8 @@ function sendTextWithKeyboard($buttons, $text, $icon)
         $option[] = [$telegram->buildKeyboardButton($icon . $buttons[count($buttons) - 1])];
     }
     $option[] = [
-        $telegram->buildKeyboardButton("🔙" . $user->GetText("back")),
-        $telegram->buildKeyboardButton("🔙" . $user->GetText("main_page"))
+        $telegram->buildKeyboardButton($user->GetText("back")),
+        $telegram->buildKeyboardButton($user->GetText("main_page"))
     ];
     $keyboard = $telegram->buildKeyBoard($option);
     $content = [
