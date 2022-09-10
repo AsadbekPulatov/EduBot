@@ -1,14 +1,17 @@
 <?php
 
 require_once 'connect.php';
+
 class User
 {
     private $chat_id;
     private $firstname;
 
-    function __construct($chat_id){
+    function __construct($chat_id)
+    {
         $this->chat_id = $chat_id;
     }
+
     function createUser($chat_id, $firstname)
     {
         global $connect;
@@ -82,16 +85,15 @@ class User
         return $districtsArray;
     }
 
-    function setDistrict($text){
+    function setDistrict($text)
+    {
         global $connect;
         $language = $this->getLanguage();
         $id = 0;
         $sql = "SELECT id FROM districts WHERE `{$language}` = '{$text}'";
         $result = $connect->query($sql);
         $row = $result->fetch_assoc();
-        if (isset($row[$language])){
-            $id = (int)$row['id'];
-        }
+        $id = (int)$row['id'];
         $sql = "UPDATE users SET `district_id` = $id WHERE `chat_id` = $this->chat_id";
         $connect->query($sql);
     }
@@ -113,16 +115,15 @@ class User
         return $subjectsArray;
     }
 
-    function setSubject($text){
+    function setSubject($text)
+    {
         global $connect;
         $language = $this->getLanguage();
         $id = 0;
         $sql = "SELECT id FROM subjects WHERE `{$language}` = '{$text}'";
         $result = $connect->query($sql);
         $row = $result->fetch_assoc();
-        if (isset($row[$language])){
-            $id = (int)$row['id'];
-        }
+        $id = (int)$row['id'];
         $sql = "UPDATE users SET `subject_id` = $id WHERE `chat_id` = $this->chat_id";
         $connect->query($sql);
     }
