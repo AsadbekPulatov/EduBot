@@ -76,7 +76,7 @@ if ($text == "/start") {
                 default:
                     if (in_array(substr($text, 3), $user->getSubjects())) {
                         $user->setSubject(substr($text, 3));
-                        sendMessage("ishladi");
+                        showTrainingCentres();
                     } else {
                         sendMessage(substr($text, 3));
                     }
@@ -187,6 +187,26 @@ function sendMessage($text)
         'chat_id' => $chat_id,
         'text' => $text,
     ]);
+}
+
+function showTrainingCentres()
+{
+    global $user, $telegram, $chat_id;
+
+    $text = $user->GetText('choose_tc_text');
+
+    $TrainingCentres = $user->getTrainingCentres();
+    $option = [];
+    foreach ($TrainingCentres as $item) {
+        $option[] = [$telegram->buildInlineKeyboardButton("☑" . $item . "☑", "", $item)];
+    }
+    $keyboard = $telegram->buildInlineKeyBoard($option);
+
+    $content = [
+        'chat_id' => $chat_id,
+        'reply_markup' => $keyboard,
+        'text' => $text,
+    ];
 }
 
 ?>

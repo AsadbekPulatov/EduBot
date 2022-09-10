@@ -127,4 +127,25 @@ class User
         $sql = "UPDATE users SET `subject_id` = $id WHERE `chat_id` = $this->chat_id";
         $connect->query($sql);
     }
+
+    function getTrainingCentres(){
+        global $connect;
+
+        $sql = "SELECT * FROM users WHERE `chat_id` = {$this->chat_id}";
+        $result = $connect->query($sql);
+        $row = $result->fetch_assoc();
+
+        $district = $row['district_id'];
+        $subject = $row['subject_id'];
+
+        $TrainingCentres = [];
+        $sql = "SELECT * FROM trainingcentres WHERE `district` = '{$district}' AND `subject` LIKE '%{$subject}%'";
+        $result = $connect->query($sql);
+
+        while ($row = $result->fetch_assoc()){
+            $TrainingCentres[] = $row['name'];
+        }
+
+        return $TrainingCentres;
+    }
 }
