@@ -57,6 +57,7 @@ if ($text == "/start") {
                     break;
                 default:
                     if (in_array(substr($text, 4), $user->getDistricts())) {
+                        $user->setDistrict(substr($text, 4));
                         showSubjects();
                     } else {
                         sendMessage(substr($text, 4));
@@ -74,6 +75,7 @@ if ($text == "/start") {
                     break;
                 default:
                     if (in_array(substr($text, 3), $user->getSubjects())) {
+                        $user->setSubject(substr($text, 3));
                         sendMessage("ishladi");
                     } else {
                         sendMessage(substr($text, 3));
@@ -129,7 +131,7 @@ function showMain()
 
 function showDistricts()
 {
-    global $chat_id, $user;
+    global $user;
 
 //    setPage($chat_id, "districts");
     $user->setPage("districts");
@@ -141,7 +143,7 @@ function showDistricts()
 
 function showSubjects()
 {
-    global $chat_id, $user;
+    global $user;
     $text = $user->GetText("choose_subject");
 //    setPage($chat_id, 'subjects');
     $user->setPage('subjects');

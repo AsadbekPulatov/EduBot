@@ -82,6 +82,20 @@ class User
         return $districtsArray;
     }
 
+    function setDistrict($text){
+        global $connect;
+        $language = $this->getLanguage();
+        $id = 0;
+        $sql = "SELECT id FROM districts WHERE `{$language}` = '{$text}'";
+        $result = $connect->query($sql);
+        $row = $result->fetch_assoc();
+        if (isset($row[$language])){
+            $id = (int)$row['id'];
+        }
+        $sql = "UPDATE users SET `district_id` = $id WHERE `chat_id` = $this->chat_id";
+        $connect->query($sql);
+    }
+
     function getSubjects()
     {
         global $connect;
@@ -97,5 +111,19 @@ class User
             }
         }
         return $subjectsArray;
+    }
+
+    function setSubject($text){
+        global $connect;
+        $language = $this->getLanguage();
+        $id = 0;
+        $sql = "SELECT id FROM subjects WHERE `{$language}` = '{$text}'";
+        $result = $connect->query($sql);
+        $row = $result->fetch_assoc();
+        if (isset($row[$language])){
+            $id = (int)$row['id'];
+        }
+        $sql = "UPDATE users SET `subject_id` = $id WHERE `chat_id` = $this->chat_id";
+        $connect->query($sql);
     }
 }
