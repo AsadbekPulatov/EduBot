@@ -16,14 +16,14 @@ $subject = $result['keyword'];
 $sql = "select keyword from districts where id=" . $district_id . " limit 1";
 $result = $connect->query($sql)->fetch_assoc();
 $district = $result['keyword'];
-$sql = "select * from trainingcentres WHERE district = {$district}";
+$sql = "select * from trainingcentres WHERE district = '{$district}'";
 $result = $connect->query($sql);
 $centers = [];
 while ($row = $result->fetch_assoc()) {
-    $subjects = explode(',', $row['subjects']);
-    if (in_array($subject, $subjects)) {
-        $centers[] = $row;
-    }
+//    $subjects = explode(',', $row['subjects']);
+//    if (in_array($subject, $subjects)) {
+        $centers[] = $row['name'];
+//    }
 }
 
 
