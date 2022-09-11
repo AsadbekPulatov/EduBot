@@ -2,16 +2,18 @@
 
 require_once 'User.php';
 
-$user = new User("967469906");
-
 $centers = $user->getTrainingCentres();
 
-$sql = "select * from trainingcentres WHERE district = 1";
+$sql = "select * from trainingcentres WHERE district = 'yunusobod'";
 $result = $connect->query($sql);
 $centers = [];
 while ($row = $result->fetch_assoc()) {
     $centers[] = $row;
 }
 
-echo "<pre>".
-var_dump($centers)."</pre>";
+$chat_id = 967469906;
+$user = new User($chat_id);
+
+echo '<pre>';
+var_dump($centers);
+echo '</pre>';
