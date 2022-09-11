@@ -128,7 +128,8 @@ class User
         $connect->query($sql);
     }
 
-    function getTrainingCentres(){
+    function getTrainingCentres()
+    {
         global $connect;
 
         $sql = "select * from users where chat_id=" . $this->chat_id . " limit 1";
@@ -136,21 +137,17 @@ class User
         $district_id = $result['district_id'];
         $subject_id = $result['subject_id'];
         $sql = "select keyword from subjects where id=" . $subject_id . " limit 1";
-        $result =  $connect->query($sql)->fetch_assoc();
+        $result = $connect->query($sql)->fetch_assoc();
         $keyword = $result['keyword'];
 
-        $sql = "select * from trainingcentres";
+        $sql = "select * from trainingcentres WHERE district = {$district_id}";
         $result = $connect->query($sql);
         $centers = [];
         while ($row = $result->fetch_assoc()) {
-            $districts = explode(',', $row['district']);
-            if (in_array($district_id, $districts)) {
-                $subjects = explode(',', $row['subjects']);
-                if (in_array($keyword, $subjects)) {
-                    $centers[] = $row;
-                }
+            $subjects = explode(',', $row['subjects']);
+            if (in_array($keyword, $subjects)) {
+                $centers[] = $row;
             }
-
         }
         return $centers;
     }
