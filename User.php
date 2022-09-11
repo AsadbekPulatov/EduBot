@@ -139,7 +139,7 @@ class User
         $result =  $connect->query($sql)->fetch_assoc();
         $keyword = $result['keyword'];
 
-        $sql = "select * from centers";
+        $sql = "select * from trainingcentres";
         $result = $connect->query($sql);
         $centers = [];
         while ($row = $result->fetch_assoc()) {
