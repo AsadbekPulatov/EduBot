@@ -89,12 +89,11 @@ class User
     {
         global $connect;
         $language = $this->getLanguage();
-        $id = 0;
         $sql = "SELECT keyword FROM districts WHERE `{$language}` = '{$text}'";
         $result = $connect->query($sql);
         $row = $result->fetch_assoc();
         $id = $row['keyword'];
-        $sql = "UPDATE users SET `district` = $id WHERE `chat_id` = $this->chat_id";
+        $sql = "UPDATE users SET `district` = '$id' WHERE `chat_id` = $this->chat_id";
         $connect->query($sql);
     }
 
@@ -119,12 +118,11 @@ class User
     {
         global $connect;
         $language = $this->getLanguage();
-        $id = 0;
         $sql = "SELECT keyword FROM subjects WHERE `{$language}` = '{$text}'";
         $result = $connect->query($sql);
         $row = $result->fetch_assoc();
         $id = $row['keyword'];
-        $sql = "UPDATE users SET `subject` = $id WHERE `chat_id` = $this->chat_id";
+        $sql = "UPDATE users SET `subject` = '$id' WHERE `chat_id` = $this->chat_id";
         $connect->query($sql);
     }
 
