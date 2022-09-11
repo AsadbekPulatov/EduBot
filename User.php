@@ -149,4 +149,16 @@ class User
         }
         return $centers;
     }
+
+    function getAllTrainingCentres()
+    {
+        global $connect;
+        $sql = "SELECT * FROM trainingcentres";
+        $result = $connect->query($sql);
+        $center = [];
+        while ($row = $result->fetch_assoc()) {
+            $center[] = $row;
+        }
+        return $center;
+    }
 }

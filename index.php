@@ -42,7 +42,7 @@ if ($text == "/start") {
                     showDistricts();
                     break;
                 case $user->GetText("training_center_list"):
-                    //ToDo
+                    showAllTrainingCentres();
                     break;
                 case $user->GetText("change_lang"):
                     chooseLanguage();
@@ -196,6 +196,24 @@ function showTrainingCentres()
     }
     $keyboard = $telegram->buildInlineKeyBoard($option);
 
+    $content = [
+        'chat_id' => $chat_id,
+        'reply_markup' => $keyboard,
+        'text' => $text,
+    ];
+    $telegram->sendMessage($content);
+}
+
+function showAllTrainingCentres(){
+    global $user, $telegram, $chat_id;
+    $text = $user->GetText("training_center_list");
+    $TrainingCentres = $user->getAllTrainingCentres();
+
+    $option = [];
+    foreach ($TrainingCentres as $item) {
+        $option[] = [$telegram->buildInlineKeyboardButton("☑" . $item['name'] . "☑", "", $item['id'])];
+    }
+    $keyboard = $telegram->buildInlineKeyBoard($option);
     $content = [
         'chat_id' => $chat_id,
         'reply_markup' => $keyboard,
