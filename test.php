@@ -22,7 +22,7 @@ $centers = [];
 while ($row = $result->fetch_assoc()) {
 //    $subjects = explode(',', $row['subjects']);
 //    if (in_array($subject, $subjects)) {
-        $centers[] = $row['name'];
+        $centers[] = $row;
 //    }
 }
 
