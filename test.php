@@ -2,8 +2,8 @@
 
 require_once 'User.php';
 
-$chat_id = 967469906;
-$user = new User($chat_id);
+//$chat_id = 967469906;
+//$user = new User($chat_id);
 
 
 $sql = "select * from users where chat_id=" . $chat_id . " limit 1";
