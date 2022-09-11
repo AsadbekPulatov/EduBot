@@ -93,7 +93,7 @@ class User
         $result = $connect->query($sql);
         $row = $result->fetch_assoc();
         $keyword = $row['keyword'];
-        $sql = "UPDATE users SET district = '{$keyword}' WHERE `chat_id` = $this->chat_id";
+        $sql = "UPDATE users SET `district` = '{$keyword}' WHERE `chat_id` = '{$this->chat_id}'";
         $connect->query($sql);
     }
 
@@ -122,7 +122,7 @@ class User
         $result = $connect->query($sql);
         $row = $result->fetch_assoc();
         $keyword = $row['keyword'];
-        $sql = "UPDATE users SET subject = '{$keyword}' WHERE `chat_id` = $this->chat_id";
+        $sql = "UPDATE users SET `subject` = '{$keyword}' WHERE `chat_id` = '{$this->chat_id}'";
         $connect->query($sql);
     }
 
