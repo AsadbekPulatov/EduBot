@@ -89,11 +89,12 @@ class User
     {
         global $connect;
         $language = $this->getLanguage();
-        $sql = "SELECT * FROM districts WHERE `{$language}` = '{$text}'";
+        $id = 0;
+        $sql = "SELECT id FROM districts WHERE `{$language}` = '{$text}'";
         $result = $connect->query($sql);
         $row = $result->fetch_assoc();
-        $keyword = $row['keyword'];
-        $sql = "UPDATE users SET `district` = '{$keyword}' WHERE `chat_id` = '{$this->chat_id}'";
+        $id = (int)$row['id'];
+        $sql = "UPDATE users SET `district_id` = $id WHERE `chat_id` = $this->chat_id";
         $connect->query($sql);
     }
 
@@ -118,27 +119,36 @@ class User
     {
         global $connect;
         $language = $this->getLanguage();
-        $sql = "SELECT * FROM subjects WHERE `{$language}` = '{$text}'";
+        $id = 0;
+        $sql = "SELECT id FROM subjects WHERE `{$language}` = '{$text}'";
         $result = $connect->query($sql);
         $row = $result->fetch_assoc();
-        $keyword = $row['keyword'];
-        $sql = "UPDATE users SET `subject` = '{$keyword}' WHERE `chat_id` = '{$this->chat_id}'";
+        $id = (int)$row['id'];
+        $sql = "UPDATE users SET `subject_id` = $id WHERE `chat_id` = $this->chat_id";
         $connect->query($sql);
     }
 
     function getTrainingCentres()
     {
         global $connect;
-
         $sql = "select * from users where chat_id=" . $this->chat_id . " limit 1";
         $result = $connect->query($sql)->fetch_assoc();
-        $district = $result['district'];
-        $subject = $result['subject'];
-        $sql = "select * from trainingcentres WHERE district = {$district} AND subjects LIKE '%{$subject}%'";
+        $district_id = $result['district_id'];
+        $subject_id = $result['subject_id'];
+        $sql = "select keyword from subjects where id=" . $subject_id . " limit 1";
+        $result = $connect->query($sql)->fetch_assoc();
+        $subject = $result['keyword'];
+        $sql = "select keyword from districts where id=" . $district_id . " limit 1";
+        $result = $connect->query($sql)->fetch_assoc();
+        $district = $result['keyword'];
+        $sql = "select * from trainingcentres WHERE district = {$district}";
         $result = $connect->query($sql);
         $centers = [];
         while ($row = $result->fetch_assoc()) {
-            $centers[] = $row;
+            $subjects = explode(',', $row['subjects']);
+            if (in_array($subject, $subjects)) {
+                $centers[] = $row;
+            }
         }
         return $centers;
     }
