@@ -143,7 +143,7 @@ class User
         $result = $connect->query($sql);
         $centers = [];
         while ($row = $result->fetch_assoc()) {
-            $districts = explode(',', $row['district_id']);
+            $districts = explode(',', $row['district']);
             if (in_array($district_id, $districts)) {
                 $subjects = explode(',', $row['subjects']);
                 if (in_array($keyword, $subjects)) {
