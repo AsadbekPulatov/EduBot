@@ -89,11 +89,12 @@ class User
     {
         global $connect;
         $language = $this->getLanguage();
-        $sql = "SELECT keyword FROM districts WHERE `{$language}` = '{$text}'";
+        $keyword = "";
+        $sql = "SELECT * FROM districts WHERE `{$language}` = '{$text}'";
         $result = $connect->query($sql);
         $row = $result->fetch_assoc();
-        $id = $row['keyword'];
-        $sql = "UPDATE users SET `district` = '$id' WHERE `chat_id` = $this->chat_id";
+        $keyword = $row['keyword'];
+        $sql = "UPDATE users SET `district` = '{$keyword}' WHERE `chat_id` = $this->chat_id";
         $connect->query($sql);
     }
 
@@ -118,11 +119,12 @@ class User
     {
         global $connect;
         $language = $this->getLanguage();
-        $sql = "SELECT keyword FROM subjects WHERE `{$language}` = '{$text}'";
+        $keyword = 0;
+        $sql = "SELECT * FROM subjects WHERE `{$language}` = '{$text}'";
         $result = $connect->query($sql);
         $row = $result->fetch_assoc();
-        $id = $row['keyword'];
-        $sql = "UPDATE users SET `subject` = '$id' WHERE `chat_id` = $this->chat_id";
+        $keyword = $row['keyword'];
+        $sql = "UPDATE users SET `subject_id` = '{$keyword}' WHERE `chat_id` = $this->chat_id";
         $connect->query($sql);
     }
 
