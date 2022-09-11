@@ -20,10 +20,10 @@ $sql = "select * from trainingcentres WHERE district = {$district} AND subjects 
 $result = $connect->query($sql);
 $centers = [];
 while ($row = $result->fetch_assoc()) {
-//    $subjects = explode(',', $row['subjects']);
-//    if (in_array($subject, $subjects)) {
+    $subjects = explode(',', $row['subjects']);
+    if (in_array($subject, $subjects)) {
         $centers[] = $row;
-//    }
+    }
 }
 
 

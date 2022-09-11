@@ -141,6 +141,7 @@ class User
         $sql = "select keyword from districts where id=" . $district_id . " limit 1";
         $result = $connect->query($sql)->fetch_assoc();
         $district = $result['keyword'];
+        //tepasi togri
         $sql = "select * from trainingcentres WHERE district = {$district}";
         $result = $connect->query($sql);
         $centers = [];
