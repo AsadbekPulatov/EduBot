@@ -139,8 +139,10 @@ class User
         $sql = "select keyword from subjects where id=" . $subject_id . " limit 1";
         $result = $connect->query($sql)->fetch_assoc();
         $keyword = $result['keyword'];
-
-        $sql = "select * from trainingcentres WHERE district = {$district_id}";
+        $sql = "select keyword from districts where id=" . $district_id . " limit 1";
+        $result = $connect->query($sql)->fetch_assoc();
+        $district = $result['keyword'];
+        $sql = "select * from trainingcentres WHERE district = {$district}";
         $result = $connect->query($sql);
         $centers = [];
         while ($row = $result->fetch_assoc()) {
