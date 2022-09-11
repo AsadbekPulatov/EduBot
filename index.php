@@ -112,7 +112,6 @@ function chooseLanguage()
 function showMain()
 {
     global $telegram, $chat_id, $user;
-//    setPage($chat_id, 'main');
     $user->setPage('main');
     $text = $user->GetText("choose_category");
     $option = array(
@@ -132,12 +131,9 @@ function showMain()
 function showDistricts()
 {
     global $user;
-
-//    setPage($chat_id, "districts");
     $user->setPage("districts");
     $text = $user->GetText("choose_districts");
     $districts = $user->getDistricts();
-
     sendTextWithKeyboard($districts, $text, "📍");
 }
 
@@ -145,9 +141,7 @@ function showSubjects()
 {
     global $user;
     $text = $user->GetText("choose_subject");
-//    setPage($chat_id, 'subjects');
     $user->setPage('subjects');
-//    $subjects = getSubjects($chat_id);
     $subjects = $user->getSubjects();
     sendTextWithKeyboard($subjects, $text, "◻");
 }
