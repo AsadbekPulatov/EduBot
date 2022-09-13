@@ -86,7 +86,16 @@ if ($text == "/start") {
             }
             break;
         case "center":
-            $user->getInfo($telegram->Callback_Data());
+            $callback_query = $telegram->Callback_Query();
+            if ($callback_query !== null && $callback_query != '') {
+                $callback_data = $telegram->Callback_Data();
+                $chatID = $telegram->Callback_ChatID();
+                $mtext = $user->getInfo($callback_data);
+                $content = array('chat_id' => $chatID, 'text' => $mtext);
+                $telegram->sendMessage($content);
+                $content = ['callback_query_id' => $telegram->Callback_ID(), 'text' => '', 'show_alert' => false];
+                $telegram->answerCallbackQuery($content);
+            }
             break;
         default:
             sendMessage("{ |" . $page . "| }");
@@ -195,7 +204,7 @@ function showTrainingCentres()
     $text = $user->GetText('choose_tc_text');
 
     $TrainingCentres = $user->getTrainingCentres();
-    if (!$TrainingCentres){
+    if (!$TrainingCentres) {
         $content = [
             'chat_id' => $chat_id,
             'text' => $user->GetText('no_markaz'),
@@ -217,7 +226,8 @@ function showTrainingCentres()
     }
 }
 
-function showAllTrainingCentres(){
+function showAllTrainingCentres()
+{
     global $user, $telegram, $chat_id;
     $text = $user->GetText("training_center_list");
     $TrainingCentres = $user->getAllTrainingCentres();
