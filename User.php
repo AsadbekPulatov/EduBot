@@ -169,20 +169,20 @@ class User
         $sql = "select * from trainingcentres where id=" . $id . " limit 1";
         $result = $connect->query($sql)->fetch_assoc();
 //        $info = $result[$lang];
-//        $districts = $result['district_id'];
-//        $subjects = $result['subjects'];
-        $xabar = "📜 " . $this->GetText('x_m_nomi') . "\n";
+        $districts = $result['district_id'];
+        $subjects = $result['subjects'];
+        $xabar = "📜 " . $this->GetText('center_name') . "\n";
         $xabar .= "🏢 " . $result['name'] . "\n \n";
 //        $info = explode(';;', $info);
 //        $xabar .= "💭 " . $this->GetText('x_q_izoh') . "\n";
 //        $xabar .= $info[0] . "\n \n";
-//        $xabar .= "📚 " . $this->GetText('x_fanlar') . "\n";
-//        $subjects = explode(',', $subjects);
-//        foreach ($subjects as $subject) {
-//            $sql="select * from subjects where keyword='$subject' limit 1";
-//            $d=$connect->query($sql)->fetch_assoc();
-//            $xabar .= "🔷 " . $d[$lang] . " \n";
-//        }
+        $xabar .= "📚 " . $this->GetText('science') . "\n";
+        $subjects = explode(',', $subjects);
+        foreach ($subjects as $subject) {
+            $sql="select * from subjects where keyword='$subject' limit 1";
+            $d=$connect->query($sql)->fetch_assoc();
+            $xabar .= "🔷 " . $d[$lang] . " \n";
+        }
 //        $xabar .= "\n";
 //        $xabar .= "📍 " . $this->GetText('x_manzil') . " \n";
 //        $xabar .= $info[1] . " \n \n";
