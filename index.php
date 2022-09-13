@@ -42,6 +42,7 @@ if ($text == "/start") {
                     showDistricts();
                     break;
                 case $user->GetText("training_center_list"):
+                    $user->setPage("center");
                     showAllTrainingCentres();
                     break;
                 case $user->GetText("change_lang"):
@@ -76,12 +77,16 @@ if ($text == "/start") {
                 default:
                     if (in_array(substr($text, 3), $user->getSubjects())) {
                         $user->setSubject(substr($text, 3));
+                        $user->setPage("center");
                         showTrainingCentres();
                     } else {
                         sendMessage(substr($text, 3));
                     }
                     break;
             }
+            break;
+        case "center":
+            $user->getInfo($telegram->Callback_Data());
             break;
         default:
             sendMessage("{ |" . $page . "| }");
@@ -190,18 +195,26 @@ function showTrainingCentres()
     $text = $user->GetText('choose_tc_text');
 
     $TrainingCentres = $user->getTrainingCentres();
-    $option = [];
-    foreach ($TrainingCentres as $item) {
-        $option[] = [$telegram->buildInlineKeyboardButton("☑" . $item['name'] . "☑", "", $item['id'])];
-    }
-    $keyboard = $telegram->buildInlineKeyBoard($option);
+    if (!$TrainingCentres){
+        $content = [
+            'chat_id' => $chat_id,
+            'text' => $user->GetText('no_markaz'),
+        ];
+        $telegram->sendMessage($content);
+    } else {
+        $option = [];
+        foreach ($TrainingCentres as $item) {
+            $option[] = [$telegram->buildInlineKeyboardButton("☑" . $item['name'] . "☑", "", $item['id'])];
+        }
+        $keyboard = $telegram->buildInlineKeyBoard($option);
 
-    $content = [
-        'chat_id' => $chat_id,
-        'reply_markup' => $keyboard,
-        'text' => $text,
-    ];
-    $telegram->sendMessage($content);
+        $content = [
+            'chat_id' => $chat_id,
+            'reply_markup' => $keyboard,
+            'text' => $text,
+        ];
+        $telegram->sendMessage($content);
+    }
 }
 
 function showAllTrainingCentres(){
