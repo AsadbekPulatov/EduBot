@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3e1d0e54-33b1-443e-bcf2-989f92263c42" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2EF98qQAf7niPZT5cV9o5cKChmb" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
+    "import_schema_mapping": "<schema-mapping><databases><list><schema-mapping-item><source-data-source-id>95160b69-918f-4327-90af-2cb9b693ea26</source-data-source-id><source-path>schema/\"heroku_7784e9053df43f3\"</source-path><target-data-source-id>95160b69-918f-4327-90af-2cb9b693ea26</target-data-source-id><target-path>schema/\"heroku_7784e9053df43f3\"</target-path></schema-mapping-item></list></databases></schema-mapping>",
+    "last_opened_file_path": "D:/xampp/htdocs/TelegramBot/WeatherBot",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.tabs",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\TelegramBot\UzbEduBot" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3e1d0e54-33b1-443e-bcf2-989f92263c42" name="Changes" comment="" />
+      <created>1662180308441</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1662180308441</updated>
+      <workItem from="1662180309683" duration="7710000" />
+      <workItem from="1662383414783" duration="3534000" />
+      <workItem from="1662437547921" duration="26000" />
+      <workItem from="1662529261549" duration="8004000" />
+      <workItem from="1662539986734" duration="4134000" />
+      <workItem from="1662551272707" duration="1755000" />
+      <workItem from="1662610391428" duration="8640000" />
+      <workItem from="1662652716603" duration="1065000" />
+      <workItem from="1662698770217" duration="1270000" />
+      <workItem from="1662789734458" duration="4620000" />
+      <workItem from="1662812394808" duration="5396000" />
+      <workItem from="1662865148063" duration="5020000" />
+      <workItem from="1662882000573" duration="2195000" />
+      <workItem from="1662911330649" duration="1426000" />
+      <workItem from="1662972873864" duration="37000" />
+      <workItem from="1662974102617" duration="3000" />
+      <workItem from="1663041627707" duration="1461000" />
+      <workItem from="1663069054160" duration="377000" />
+      <workItem from="1663236677630" duration="756000" />
+      <workItem from="1663237909318" duration="14000" />
+    </task>
+    <task id="LOCAL-00051" summary="OOP qoshdim">
+      <created>1662616965164</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1662616965164</updated>
+    </task>
+    <task id="LOCAL-00052" summary="OOP qoshdim">
+      <created>1662617417405</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1662617417405</updated>
+    </task>
+    <task id="LOCAL-00053" summary="OOP qoshdim">
+      <created>1662618028525</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1662618028525</updated>
+    </task>
+    <task id="LOCAL-00054" summary="OOP qoshdim">
+      <created>1662618557936</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1662618557936</updated>
+    </task>
+    <task id="LOCAL-00055" summary="OOP qoshdim">
+      <created>1662618982484</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1662618982484</updated>
+    </task>
+    <task id="LOCAL-00056" summary="OOP qoshdim">
+      <created>1662619120921</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1662619120921</updated>
+    </task>
+    <task id="LOCAL-00057" summary="OOP qoshdim">
+      <created>1662619571941</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1662619571942</updated>
+    </task>
+    <task id="LOCAL-00058" summary="OOP qoshdim">
+      <created>1662620711809</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1662620711809</updated>
+    </task>
+    <task id="LOCAL-00059" summary="OOP qoshdim">
+      <created>1662621020532</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1662621020532</updated>
+    </task>
+    <task id="LOCAL-00060" summary="OOP qoshdim">
+      <created>1662621155308</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1662621155308</updated>
+    </task>
+    <task id="LOCAL-00061" summary="utf8mb4_bin">
+      <created>1662792441776</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1662792441776</updated>
+    </task>
+    <task id="LOCAL-00062" summary="utf8mb4_bin">
+      <created>1662792763806</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1662792763806</updated>
+    </task>
+    <task id="LOCAL-00063" summary="userga district va subject qoshildi">
+      <created>1662794427699</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1662794427699</updated>
+    </task>
+    <task id="LOCAL-00064" summary="userga district va subject qoshildi">
+      <created>1662794860406</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1662794860406</updated>
+    </task>
+    <task id="LOCAL-00065" summary="userga district va subject qoshildi">
+      <created>1662817439033</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1662817439033</updated>
+    </task>
+    <task id="LOCAL-00066" summary="TrainingCenter created inline button">
+      <created>1662821166187</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1662821166187</updated>
+    </task>
+    <task id="LOCAL-00067" summary="TrainingCenter created inline button">
+      <created>1662821253887</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1662821253888</updated>
+    </task>
+    <task id="LOCAL-00068" summary="TrainingCenter created inline button">
+      <created>1662821788226</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1662821788226</updated>
+    </task>
+    <task id="LOCAL-00069" summary="TrainingCenter created inline button">
+      <created>1662821971804</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1662821971804</updated>
+    </task>
+    <task id="LOCAL-00070" summary="TrainingCenter created inline button">
+      <created>1662865354432</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1662865354432</updated>
+    </task>
+    <task id="LOCAL-00071" summary="TrainingCenter created inline button">
+      <created>1662865526821</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1662865526822</updated>
+    </task>
+    <task id="LOCAL-00072" summary="TrainingCenter created inline button">
+      <created>1662866021933</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1662866021933</updated>
+    </task>
+    <task id="LOCAL-00073" summary="TrainingCenter created inline button">
+      <created>1662866221762</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1662866221762</updated>
+    </task>
+    <task id="LOCAL-00074" summary="TrainingCenter created inline button">
+      <created>1662866401281</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1662866401281</updated>
+    </task>
+    <task id="LOCAL-00075" summary="TrainingCenter created inline button">
+      <created>1662866479906</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1662866479906</updated>
+    </task>
+    <task id="LOCAL-00076" summary="TrainingCenter created inline button">
+      <created>1662866693035</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1662866693035</updated>
+    </task>
+    <task id="LOCAL-00077" summary="TrainingCenter created inline button">
+      <created>1662867082668</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1662867082668</updated>
+    </task>
+    <task id="LOCAL-00078" summary="TrainingCenter created inline button">
+      <created>1662867296364</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1662867296364</updated>
+    </task>
+    <task id="LOCAL-00079" summary="TrainingCenter created inline button">
+      <created>1662867612205</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1662867612205</updated>
+    </task>
+    <task id="LOCAL-00080" summary="TrainingCenter created inline button">
+      <created>1662867830092</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1662867830092</updated>
+    </task>
+    <task id="LOCAL-00081" summary="TrainingCenter created inline button">
+      <created>1662868292338</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1662868292338</updated>
+    </task>
+    <task id="LOCAL-00082" summary="TrainingCenter created inline button">
+      <created>1662868716933</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1662868716933</updated>
+    </task>
+    <task id="LOCAL-00083" summary="TrainingCenter created inline button">
+      <created>1662869271250</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1662869271250</updated>
+    </task>
+    <task id="LOCAL-00084" summary="TrainingCenter created inline button">
+      <created>1662869522980</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1662869522980</updated>
+    </task>
+    <task id="LOCAL-00085" summary="TrainingCenter created inline button">
+      <created>1662869618863</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1662869618863</updated>
+    </task>
+    <task id="LOCAL-00086" summary="TrainingCenter created inline button">
+      <created>1662869711946</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1662869711946</updated>
+    </task>
+    <task id="LOCAL-00087" summary="TrainingCenter created inline button">
+      <created>1662869927469</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1662869927469</updated>
+    </task>
+    <task id="LOCAL-00088" summary="TrainingCenter created inline button">
+      <created>1662870065388</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1662870065388</updated>
+    </task>
+    <task id="LOCAL-00089" summary="TrainingCenter created inline button">
+      <created>1662882106473</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1662882106474</updated>
+    </task>
+    <task id="LOCAL-00090" summary="TrainingCenter created inline button">
+      <created>1662882235955</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1662882235955</updated>
+    </task>
+    <task id="LOCAL-00091" summary="TrainingCenter created inline button">
+      <created>1662882385417</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1662882385417</updated>
+    </task>
+    <task id="LOCAL-00092" summary="TrainingCenter created inline button">
+      <created>1662882574006</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1662882574007</updated>
+    </task>
+    <task id="LOCAL-00093" summary="TrainingCenter created inline button">
+      <created>1662882634044</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1662882634044</updated>
+    </task>
+    <task id="LOCAL-00094" summary="TrainingCenter created inline button">
+      <created>1662882744004</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1662882744004</updated>
+    </task>
+    <task id="LOCAL-00095" summary="TrainingCenter created inline button">
+      <created>1662883331460</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1662883331460</updated>
+    </task>
+    <task id="LOCAL-00096" summary="Show centres">
+      <created>1663042058253</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1663042058254</updated>
+    </task>
+    <task id="LOCAL-00097" summary="Show centres">
+      <created>1663042518346</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1663042518346</updated>
+    </task>
+    <task id="LOCAL-00098" summary="Show centres">
+      <created>1663042710432</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1663042710432</updated>
+    </task>
+    <task id="LOCAL-00099" summary="finished">
+      <created>1663236815220</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1663236815220</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="bug fixed" />
+    <MESSAGE value="language page compileted" />
+    <MESSAGE value="Districts page compileted" />
+    <MESSAGE value="Subjects page compileted" />
+    <MESSAGE value="OOP qoshdim" />
+    <MESSAGE value="utf8mb4_bin" />
+    <MESSAGE value="userga district va subject qoshildi" />
+    <MESSAGE value="TrainingCenter created inline button" />
+    <MESSAGE value="Show centres" />
+    <MESSAGE value="finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished" />
+  </component>
+</project>
