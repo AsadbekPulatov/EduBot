@@ -168,38 +168,7 @@ class User
         $lang = $this->getLanguage();
         $sql = "select * from trainingcentres where id=" . $id . " limit 1";
         $result = $connect->query($sql)->fetch_assoc();
-//        $info = $result[$lang];
-        $districts = $result['district_id'];
-        $subjects = $result['subjects'];
-        $xabar = "📜 " . $this->GetText('center_name') . "\n";
-        $xabar .= "🏢 " . $result['name'] . "\n \n";
-//        $info = explode(';;', $info);
-//        $xabar .= "💭 " . $this->GetText('x_q_izoh') . "\n";
-//        $xabar .= $info[0] . "\n \n";
-        $xabar .= "📚 " . $this->GetText('science') . "\n";
-        $subjects = explode(',', $subjects);
-        foreach ($subjects as $subject) {
-            $sql="select * from subjects where keyword='$subject' limit 1";
-            $d=$connect->query($sql)->fetch_assoc();
-            $xabar .= "🔷 " . $d[$lang] . " \n";
-        }
-//        $xabar .= "\n";
-//        $xabar .= "📍 " . $this->GetText('x_manzil') . " \n";
-//        $xabar .= $info[1] . " \n \n";
-//        $xabar .= "🗺 " . $this->GetText('x_filial') . "\n";
-//        $districts = explode(',',$districts);
-//        foreach ($districts as $district) {
-//            $sql="select * from districts where id='$district' limit 1";
-//            $d=$connect->query($sql)->fetch_assoc();
-//
-//            $xabar .= "🌆 " . $d[$lang] . " \n";
-//        }
-//        $xabar .= "\n";
-//        $xabar .= "☎️ " . $this->GetText('x_telefon') . " \n";
-//        $xabar .= $info[2] . " \n \n";
-//        $xabar .= "👨‍💻 " . $this->GetText('x_telegram') . "  \n";
-//        $xabar .= $info[3] . " \n \n \n ";
-//        $xabar .= "@XorazmOquvMarkazlariBot";
+        $xabar = base64_decode($result['info']);
         return $xabar;
     }
 }
